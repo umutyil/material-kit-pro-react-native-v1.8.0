@@ -5,7 +5,7 @@ import { Block, Button, Input, Text, theme } from 'galio-framework';
 import { Select } from '../components/';
 
 import { LinearGradient } from 'expo-linear-gradient';
-import { materialTheme } from '../constants/';
+import { materialTheme } from '../constants';
 import { HeaderHeight } from "../constants/utils";
 
 const { height, width } = Dimensions.get('window');
@@ -26,10 +26,6 @@ export default class SignUp extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleQuantity = (id, qty) => {
-    this.setState({ [id]: qty });
-  }
-
   toggleActive = (name) => {
     const { active } = this.state;
     active[name] = !active[name];
@@ -39,7 +35,7 @@ export default class SignUp extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    let suffixList = ['Dr.','Mr.','Ms.','Mrs.','Prof'];
+    let units = ['Intensive care unit','Cardiac intensive care unit','Coronary care unit','Emergency department','Trauma unit'];
     return (
       <LinearGradient
         start={{ x: 0, y: 0 }}
@@ -49,7 +45,7 @@ export default class SignUp extends React.Component {
         style={[styles.signup, { flex: 1, paddingTop: theme.SIZES.BASE * 4 }]}>
         <Block flex middle>
           <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "position"} enabled keyboardVerticalOffset={0}> 
-            <Block style={{ marginBottom: height * 0.05 }}>
+          <Block style={{ marginBottom: height * 0.05 }}>
               <Block row center space="between" style={{ marginVertical: theme.SIZES.BASE * 1.875 }}>
               <Text color='#fff' center size={theme.SIZES.FONT * 2}>
                 GetSMART
@@ -69,8 +65,7 @@ export default class SignUp extends React.Component {
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
                   color="white"
-                  type="email-address"
-                  placeholder="Email"
+                  placeholder="Country"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.email ? styles.inputActive : null]}
                   onChangeText={text => this.handleChange('email', text)}
@@ -82,9 +77,7 @@ export default class SignUp extends React.Component {
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
                   color="white"
-                  password
-                  viewPass
-                  placeholder="Password"
+                  placeholder="City"
                   iconColor="white"
                   style={[styles.input, this.state.active.password ? styles.inputActive : null]}
                   onChangeText={text => this.handleChange('password', text)}
@@ -96,9 +89,7 @@ export default class SignUp extends React.Component {
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
                   color="white"
-                  password
-                  viewPass
-                  placeholder="Repeat Password"
+                  placeholder="Hospital"
                   iconColor="white"
                   style={[styles.input, this.state.active.password ? styles.inputActive : null]}
                   onChangeText={text => this.handleChange('password', text)}
@@ -110,31 +101,7 @@ export default class SignUp extends React.Component {
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
                   color="white"
-                  placeholder="First Name"
-                  autoCapitalize="none"
-                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('user', text)}
-                  onBlur={() => this.toggleActive('user')}
-                  onFocus={() => this.toggleActive('user')}
-                />
-                <Input
-                  bgColor='transparent'
-                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
-                  borderless
-                  color="white"
-                  placeholder="Family Name"
-                  autoCapitalize="none"
-                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('user', text)}
-                  onBlur={() => this.toggleActive('user')}
-                  onFocus={() => this.toggleActive('user')}
-                />
-                <Input
-                  bgColor='transparent'
-                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
-                  borderless
-                  color="white"
-                  placeholder="Date of Birth"
+                  placeholder="Unit"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
                   onChangeText={text => this.handleChange('user', text)}
@@ -143,13 +110,38 @@ export default class SignUp extends React.Component {
                 />
                 <Select
                 bgColor='transparent'
-                defaultValue='Please select your Suffix'
-                options={suffixList}
+                defaultValue='Type of Unit'
+                options={units}
                 style={[styles.input, this.state.active.user ? styles.inputActive : null]}
                 borderless
                 color="white"
                 onSelect={(index, value) => this.handleQuantity(0, value)}
               />
+                <Input
+                  bgColor='transparent'
+                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
+                  borderless
+                  color="white"
+                  placeholder="Full Hospital/Unit Address"
+                  autoCapitalize="none"
+                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
+                  onChangeText={text => this.handleChange('user', text)}
+                  onBlur={() => this.toggleActive('user')}
+                  onFocus={() => this.toggleActive('user')}
+                />
+                <Input
+                  bgColor='transparent'
+                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
+                  borderless
+                  color="white"
+                  placeholder="Number of beds"
+                  autoCapitalize="none"
+                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
+                  onChangeText={text => this.handleChange('user', text)}
+                  onBlur={() => this.toggleActive('user')}
+                  onFocus={() => this.toggleActive('user')}
+                />
+                
                 
               </Block>
               <Block flex center style={{ marginTop: 20 }}>
@@ -158,7 +150,7 @@ export default class SignUp extends React.Component {
                   shadowless
                   style={{ height: 48 }}
                   color={materialTheme.COLORS.BUTTON_COLOR}
-                  onPress={() => navigation.navigate('Sign Up Step 2')}
+                  onPress={() => navigation.navigate('Sign Up Step 4')}
                 >
                   NEXT
                 </Button>
@@ -167,7 +159,7 @@ export default class SignUp extends React.Component {
                   shadowless
                   style={{ height: 48 }}
                   color={materialTheme.COLORS.BUTTON_COLOR}
-                  onPress={() => navigation.navigate('Sign In')}
+                  onPress={() => navigation.navigate('Sign Up Step 2')}
                 >
                   BACK
                 </Button>

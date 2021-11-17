@@ -24,6 +24,10 @@ import ChatScreen from "../screens/Chat";
 import CartScreen from "../screens/Cart";
 import SignInScreen from "../screens/SignIn";
 import SignUpScreen from "../screens/SignUp";
+import SignUpScreen1 from "../screens/SignUp1";
+import SignUpScreen2 from "../screens/SignUp2";
+import SignUpScreen3 from "../screens/SignUp3";
+import SignUpScreen4 from "../screens/SignUp4";
 
 import SearchScreen from "../screens/Search";
 import ComponentsScreen from "../screens/Components";
@@ -946,6 +950,39 @@ function HomeStack(props) {
   );
 }
 
+function SignUpStack(props) {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false,}}>
+      <Stack.Screen
+        name="Sign Up"
+        component={SignUpScreen}
+        option={{headerShown: false}}
+      />
+     <Stack.Screen
+        name="Sign Up Step 2"
+        component={SignUpScreen1}
+        options={{
+          
+        }}
+      />
+      <Stack.Screen
+        name="Sign Up Step 3"
+        component={SignUpScreen2}
+        options={{
+         
+        }}
+      />
+      <Stack.Screen
+        name="Sign Up Step 4"
+        component={SignUpScreen3}
+        options={{
+          
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function AppStack(props) {
   return (
     <Drawer.Navigator
@@ -1107,9 +1144,10 @@ function AppStack(props) {
           )
         }}
       />
+      
       <Drawer.Screen
         name="Sign Up"
-        component={SignUpScreen}
+        component={SignUpStack}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon

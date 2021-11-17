@@ -4,10 +4,11 @@ import ModalDropdown from 'react-native-modal-dropdown';
 import { Block, Text, Icon, theme } from 'galio-framework';
 
 import { materialTheme } from '../constants/';
+import { color } from 'react-native-reanimated';
 
 export default class DropDown extends React.Component {
   state = {
-    value: 1,
+    value: 'tes',
   }
 
   handleOnSelect = (index, value) => {
@@ -20,16 +21,15 @@ export default class DropDown extends React.Component {
   render() {
     const { onSelect, style, ...props } = this.props;
     return (
+      
       <ModalDropdown
         style={[styles.qty, style]}
+        textStyle={styles.dropdown_2_text}
         onSelect={this.handleOnSelect}
         dropdownStyle={styles.dropdown}
         dropdownTextStyle={{ paddingLeft: theme.SIZES.BASE, fontSize: 12 }}
         {...props}>
-        <Block flex row middle space="between">
-          <Text size={12}>{this.state.value}</Text>
-          <Icon name="angle-down" family="font-awesome" size={11} />
-        </Block>
+        
       </ModalDropdown>
     )
   }
@@ -37,8 +37,7 @@ export default class DropDown extends React.Component {
 
 const styles = StyleSheet.create({
   qty: {
-    width: theme.SIZES.BASE * 6,
-    backgroundColor: materialTheme.COLORS.DEFAULT,
+    backgroundColor: 'transparent',
     paddingHorizontal: theme.SIZES.BASE,
     paddingTop: 10,
     paddingBottom: 9.5,
@@ -47,10 +46,24 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     shadowOpacity: 1,
+    color: 'white'
   },
   dropdown: {
     marginTop: theme.SIZES.BASE / 2,
     marginLeft: -theme.SIZES.BASE,
     width: theme.SIZES.BASE * 6,
+  },
+  buttonText: {
+    fontSize: 12,
+    color: 'white',
+    tintColor:'white'
+  },
+  dropdown_2_text: {
+    marginVertical: 10,
+    marginHorizontal: 6,
+    fontSize: 18,
+    color: 'white',
+    textAlign: 'center',
+    textAlignVertical: 'center',
   },
 });

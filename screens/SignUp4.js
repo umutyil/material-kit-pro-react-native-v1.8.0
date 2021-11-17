@@ -2,10 +2,9 @@ import React from 'react';
 import { Alert, Dimensions, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 
 import { Block, Button, Input, Text, theme } from 'galio-framework';
-import { Select } from '../components/';
 
 import { LinearGradient } from 'expo-linear-gradient';
-import { materialTheme } from '../constants/';
+import { materialTheme } from '../constants';
 import { HeaderHeight } from "../constants/utils";
 
 const { height, width } = Dimensions.get('window');
@@ -26,10 +25,6 @@ export default class SignUp extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleQuantity = (id, qty) => {
-    this.setState({ [id]: qty });
-  }
-
   toggleActive = (name) => {
     const { active } = this.state;
     active[name] = !active[name];
@@ -39,7 +34,6 @@ export default class SignUp extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    let suffixList = ['Dr.','Mr.','Ms.','Mrs.','Prof'];
     return (
       <LinearGradient
         start={{ x: 0, y: 0 }}
@@ -51,19 +45,68 @@ export default class SignUp extends React.Component {
           <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "position"} enabled keyboardVerticalOffset={0}> 
             <Block style={{ marginBottom: height * 0.05 }}>
               <Block row center space="between" style={{ marginVertical: theme.SIZES.BASE * 1.875 }}>
-              <Text color='#fff' center size={theme.SIZES.FONT * 2}>
-                GetSMART
-              </Text>
-              
+                <Block flex middle right>
+                  <Button
+                    round
+                    onlyIcon
+                    iconSize={theme.SIZES.BASE * 1.625}
+                    icon="facebook"
+                    iconFamily="font-awesome"
+                    onPress={() => Alert.alert('Not implemented')}
+                    color={theme.COLORS.FACEBOOK}
+                    shadowless
+                    iconColor={theme.COLORS.WHITE}
+                    style={styles.social}
+                  />
+                </Block>
+                <Block flex middle center>
+                  <Button
+                    round
+                    onlyIcon
+                    iconSize={theme.SIZES.BASE * 1.625}
+                    icon="twitter"
+                    iconFamily="font-awesome"
+                    onPress={() => Alert.alert('Not implemented')}
+                    color={theme.COLORS.TWITTER}
+                    shadowless
+                    iconColor={theme.COLORS.WHITE}
+                    style={styles.social}
+                  />
+                </Block>
+                <Block flex middle left>
+                  <Button
+                    round
+                    onlyIcon
+                    iconSize={theme.SIZES.BASE * 1.625}
+                    icon="dribbble"
+                    iconFamily="font-awesome"
+                    onPress={() => Alert.alert('Not implemented')}
+                    color={theme.COLORS.DRIBBBLE}
+                    shadowless
+                    iconColor={theme.COLORS.WHITE}
+                    style={styles.social}
+                  />
+                </Block>
               </Block>
-              
-            </Block>
-            <Text color='#fff' center size={theme.SIZES.FONT * 1.25}>
-                Registration
+              <Text color='#fff' center size={theme.SIZES.FONT * 0.875}>
+                or be classical
               </Text>
+            </Block>
+
             <Block flex={1} center space="between">
               <Block center>
-                
+                <Input
+                  bgColor='transparent'
+                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
+                  borderless
+                  color="white"
+                  placeholder="Username"
+                  autoCapitalize="none"
+                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
+                  onChangeText={text => this.handleChange('user', text)}
+                  onBlur={() => this.toggleActive('user')}
+                  onFocus={() => this.toggleActive('user')}
+                />
                 <Input
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
@@ -91,66 +134,6 @@ export default class SignUp extends React.Component {
                   onBlur={() => this.toggleActive('password')}
                   onFocus={() => this.toggleActive('password')}
                 />
-                <Input
-                  bgColor='transparent'
-                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
-                  borderless
-                  color="white"
-                  password
-                  viewPass
-                  placeholder="Repeat Password"
-                  iconColor="white"
-                  style={[styles.input, this.state.active.password ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('password', text)}
-                  onBlur={() => this.toggleActive('password')}
-                  onFocus={() => this.toggleActive('password')}
-                />
-                <Input
-                  bgColor='transparent'
-                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
-                  borderless
-                  color="white"
-                  placeholder="First Name"
-                  autoCapitalize="none"
-                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('user', text)}
-                  onBlur={() => this.toggleActive('user')}
-                  onFocus={() => this.toggleActive('user')}
-                />
-                <Input
-                  bgColor='transparent'
-                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
-                  borderless
-                  color="white"
-                  placeholder="Family Name"
-                  autoCapitalize="none"
-                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('user', text)}
-                  onBlur={() => this.toggleActive('user')}
-                  onFocus={() => this.toggleActive('user')}
-                />
-                <Input
-                  bgColor='transparent'
-                  placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
-                  borderless
-                  color="white"
-                  placeholder="Date of Birth"
-                  autoCapitalize="none"
-                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('user', text)}
-                  onBlur={() => this.toggleActive('user')}
-                  onFocus={() => this.toggleActive('user')}
-                />
-                <Select
-                bgColor='transparent'
-                defaultValue='Please select your Suffix'
-                options={suffixList}
-                style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                borderless
-                color="white"
-                onSelect={(index, value) => this.handleQuantity(0, value)}
-              />
-                
               </Block>
               <Block flex center style={{ marginTop: 20 }}>
                 <Button
@@ -158,18 +141,8 @@ export default class SignUp extends React.Component {
                   shadowless
                   style={{ height: 48 }}
                   color={materialTheme.COLORS.BUTTON_COLOR}
-                  onPress={() => navigation.navigate('Sign Up Step 2')}
                 >
-                  NEXT
-                </Button>
-                <Button
-                size="large"
-                  shadowless
-                  style={{ height: 48 }}
-                  color={materialTheme.COLORS.BUTTON_COLOR}
-                  onPress={() => navigation.navigate('Sign In')}
-                >
-                  BACK
+                  SIGN UP
                 </Button>
                 <Button size="large" color="transparent" shadowless onPress={() => navigation.navigate('Sign In')}>
                   <Text center color={theme.COLORS.WHITE} size={theme.SIZES.FONT * 0.75}>

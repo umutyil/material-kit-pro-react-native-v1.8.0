@@ -44,7 +44,7 @@ export default class SignIn extends React.Component {
           <KeyboardAvoidingView behavior="padding" enabled>
             <Block middle>
               <Block row center space="between" style={{ marginVertical: theme.SIZES.BASE * 1.875 }}>
-                <Block flex middle right>
+                {/* <Block flex middle right>
                   <Button
                     round
                     onlyIcon
@@ -85,12 +85,12 @@ export default class SignIn extends React.Component {
                     style={styles.social}
                     onPress={() => Alert.alert('Not implemented')}
                   />
-                </Block>
+                </Block> */}
               </Block>
             </Block>
             <Block middle style={{ paddingVertical: theme.SIZES.BASE * 2.625}}>
               <Text center color="white" size={14}>
-                or be classical
+                
               </Text>
             </Block>
             <Block flex>
