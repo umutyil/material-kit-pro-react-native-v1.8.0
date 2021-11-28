@@ -230,7 +230,7 @@ export default function OnboardingStack(props) {
           headerTransparent: true
         }}
       />
-      <Stack.Screen name="App" component={AppStack} />
+      <Stack.Screen name="App" component={SignUpStack} />
     </Stack.Navigator>
   );
 }
@@ -979,6 +979,7 @@ function SignUpStack(props) {
           
         }}
       />
+      <Stack.Screen name="App" component={AppStack} />
     </Stack.Navigator>
   );
 }
@@ -1130,35 +1131,7 @@ function AppStack(props) {
           )
         }}
       />
-      <Drawer.Screen
-        name="Sign In"
-        component={SignInScreen}
-        options={{
-          drawerIcon: ({ focused }) => (
-            <Icon
-              size={16}
-              name="ios-log-in"
-              family="ionicon"
-              color={focused ? "white" : materialTheme.COLORS.MUTED}
-            />
-          )
-        }}
-      />
       
-      <Drawer.Screen
-        name="Sign Up"
-        component={SignUpStack}
-        options={{
-          drawerIcon: ({ focused }) => (
-            <Icon
-              size={16}
-              name="md-person-add"
-              family="ionicon"
-              color={focused ? "white" : materialTheme.COLORS.MUTED}
-            />
-          )
-        }}
-      />
     </Drawer.Navigator>
   );
 }
