@@ -18,10 +18,10 @@ const { width } = Dimensions.get("screen");
 
 const profile = {
   avatar: Images.Profile,
-  name: "Rachel Brown",
-  type: "Seller",
-  plan: "Pro",
-  rating: 4.8
+  name: "Premedix Tester",
+  type: "Critical care",
+  plan: "Dr.",
+  rating: 12
 };
 
 function CustomDrawerContent({
@@ -35,13 +35,8 @@ function CustomDrawerContent({
   const insets = useSafeArea();
   const screens = [
     "Home",
-    "Woman",
-    "Man",
-    "Kids",
-    "New Collection",
-    "Profile",
-    "Settings",
-    "Components"
+    "ICU Assistant",
+    "Settings"
   ];
   return (
     <Block
@@ -53,7 +48,7 @@ function CustomDrawerContent({
           onPress={() => navigation.navigate("Profile")}
         >
           <Block style={styles.profile}>
-            <Image source={{ uri: profile.avatar }} style={styles.avatar} />
+            {/* <Image source={{ uri: profile.avatar }} style={styles.avatar} /> */}
             <Text h5 color={"white"}>
               {profile.name}
             </Text>
@@ -69,8 +64,8 @@ function CustomDrawerContent({
             {profile.type}
           </Text>
           <Text size={16} color={materialTheme.COLORS.WARNING}>
-            {profile.rating}{" "}
-            <Icon name="shape-star" family="GalioExtra" size={14} />
+            {profile.rating}{" Years"}
+
           </Text>
         </Block>
       </Block>
@@ -97,7 +92,7 @@ function CustomDrawerContent({
           })}
         </ScrollView>
       </Block>
-      <Block flex={0.25} style={{ paddingLeft: 7, paddingRight: 14 }}>
+      {/* <Block flex={0.25} style={{ paddingLeft: 7, paddingRight: 14 }}>
         <DrawerCustomItem
           title="Sign In"
           navigation={navigation}
@@ -108,7 +103,7 @@ function CustomDrawerContent({
           navigation={navigation}
           focused={state.index === 9 ? true : false}
         />
-      </Block>
+      </Block> */}
     </Block>
   );
 }

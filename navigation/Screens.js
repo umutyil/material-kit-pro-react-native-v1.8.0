@@ -39,6 +39,10 @@ import PrivacyScreen from "../screens/Privacy";
 import AboutScreen from "../screens/About";
 import AgreementScreen from "../screens/Agreement";
 
+import GetSmartHome from "../screens/GetSmartHome";
+
+import ICUHome from "../screens/ICUHome";
+
 import CustomDrawerContent from "./Menu";
 import { tabs } from "../constants/";
 
@@ -49,10 +53,10 @@ const Drawer = createDrawerNavigator();
 
 const profile = {
   avatar: Images.Profile,
-  name: "Rachel Brown",
-  type: "Seller",
-  plan: "Pro",
-  rating: 4.8
+  name: "Premedix Tester",
+  type: "Critical care",
+  plan: "Dr.",
+  rating: 12
 };
 
 function ProfileStack(props) {
@@ -240,13 +244,11 @@ function WomanStack(props) {
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
         name="Woman"
-        component={WomanScreen}
+        component={ICUHome}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              search
-              options
-              title="Woman"
+             title="ICU Assistant"
               navigation={navigation}
               scene={scene}
             />
@@ -812,13 +814,12 @@ function HomeStack(props) {
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
         name="Home"
-        component={HomeScreen}
+        component={GetSmartHome}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              search
-              options
-              title="Home"
+              
+              title="GetSMART"
               navigation={navigation}
               scene={scene}
             />
@@ -953,6 +954,11 @@ function HomeStack(props) {
 function SignUpStack(props) {
   return (
     <Stack.Navigator screenOptions={{headerShown: false,}}>
+       <Stack.Screen
+        name="Sign In"
+        component={SignInScreen}
+        option={{headerShown: false}}
+      />
       <Stack.Screen
         name="Sign Up"
         component={SignUpScreen}
@@ -1031,7 +1037,7 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Woman"
+        name="ICU Assistant"
         component={WomanStack}
         options={{
           drawerIcon: ({ focused }) => (

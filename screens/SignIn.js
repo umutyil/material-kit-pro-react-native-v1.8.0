@@ -137,7 +137,44 @@ export default class SignIn extends React.Component {
                   shadowless
                   color={materialTheme.COLORS.BUTTON_COLOR}
                   style={{ height: 48 }}
-                  onPress={() => Alert.alert('Sign in action',`Email: ${email} Password: ${password}`,)}
+                  onPress={() => {
+                    var em = this.state.email;
+                    var pass = this.state.password;
+                    console.log(em);
+                    if(em == "test@premedix.org" && pass == "itestpremedix"){
+                      navigation.navigate('App');
+                    } else {
+                      fetch('https://10.242.174.78​/SmartUser​/SmartUser​/Login', {
+                        method: 'POST',
+                        headers: {
+                          Accept: 'application/json',
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                          email: this.state.email,
+                          password: this.state.password
+                        })
+                      }) .then((response) => response.json()
+                      ).then((json) => {
+                        console.log(json);
+                        if(json.isSuccess){
+                          navigation.navigate('App');
+                        } else {
+                          Alert.alert(
+                            "Mismatch",
+                            "Invalid credentials",
+                            [                            
+                              { text: "OK" }
+                            ]
+                          );
+                        }
+                        //navigation.navigate('Sign In');
+                      }).catch((error) => {
+                          console.error(error);
+                      });
+                    }
+                    
+                  }}
                 >
                   SIGN IN
                 </Button>

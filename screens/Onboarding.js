@@ -37,7 +37,9 @@ export default class Onboarding extends React.Component {
             </Block>
             <Block style={{ paddingHorizontal: theme.SIZES.BASE * 2,  zIndex: 3 }}>
               <Text size={16} color='rgba(255,255,255,0.6)'>
-                
+              Developed by {"\n"}Assoc. Prof. Katarzyna Czerwińska-Jelonkiewicz, MD, PhD {"\n"}
+              Francisco José Chacón-Lozsán, MD, MESC, MESICM, MsEd{"\n"}
+              Allan Böhm, MD, PhD, FESC, MBA
               </Text>
             </Block>
           </Block>
@@ -47,7 +49,7 @@ export default class Onboarding extends React.Component {
               style={styles.button}
               color={materialTheme.COLORS.BUTTON_COLOR}
               onPress={() => navigation.navigate('App')}>
-              GET STARTED
+              LETS GET SMART
             </Button>
           </Block>
         </Block>
