@@ -48,10 +48,10 @@ export default class Settings extends React.Component {
       { title: "Notifications", id: "Notifications", type: "button" },
     ];
 
-    const payment = [
-      { title: "Manage Payment Options", id: "Payment", type: "button" },
-      { title: "Manage Gift Cards", id: "gift", type: "button" },
-    ];
+    // const payment = [
+    //   { title: "Manage Payment Options", id: "Payment", type: "button" },
+    //   { title: "Manage Gift Cards", id: "gift", type: "button" },
+    // ];
     
     const privacy = [
       { title: "User Agreement", id: "Agreement", type: "button" },
@@ -78,7 +78,7 @@ export default class Settings extends React.Component {
             </Block>
           }
         />
-        <Block center style={styles.title}>
+        {/* <Block center style={styles.title}>
           <Text bold size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
             Payment Settings
           </Text>
@@ -90,7 +90,7 @@ export default class Settings extends React.Component {
         <FlatList
           data={payment}
           keyExtractor={(item, index) => item.id}
-          renderItem={this.renderItem} />
+          renderItem={this.renderItem} /> */}
 
         <Block center style={styles.title}>
           <Text bold size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
