@@ -34,7 +34,7 @@ function CustomDrawerContent({
 }) {
   const insets = useSafeArea();
   const screens = [
-    "GetSmart Home",
+    "Home",
     "ICU Assistant",
     "Settings"
   ];

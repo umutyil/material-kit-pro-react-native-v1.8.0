@@ -819,7 +819,7 @@ function HomeStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               
-              title="GetSMART"
+              title="GetSMART Home"
               navigation={navigation}
               scene={scene}
             />
