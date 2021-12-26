@@ -47,6 +47,9 @@ import ICUHome from "../screens/ICUHome";
 import CustomDrawerContent from "./Menu";
 import { tabs } from "../constants/";
 import Patients from "../screens/Patients";
+import PatientDetail from "../screens/PatientDetail";
+import NewCalculation from "../screens/NewCalculation";
+import NewCollection from "../screens/NewCollection";
 
 const { width } = Dimensions.get("screen");
 
@@ -876,37 +879,32 @@ function HomeStack(props) {
         }}
       />
       <Stack.Screen
-        name="Product"
-        component={ProductScreen}
+        name="PatientDetail"
+        component={PatientDetail}
         options={{
           header: ({ navigation, scene }) => (
             <Header
               back
-              white
-              transparent
-              title=""
+              title="Patient Detail"
               navigation={navigation}
               scene={scene}
             />
-          ),
-          headerTransparent: true
+          )
         }}
       />
       <Stack.Screen
-        name="Gallery"
-        component={GalleryScreen}
+        name="NewCalculation"
+        component={NewCollection}
         options={{
           header: ({ navigation, scene }) => (
             <Header
               back
-              white
-              transparent
-              title=""
+              title="New Calculation"
               navigation={navigation}
               scene={scene}
             />
           ),
-          headerTransparent: true
+          //headerTransparent: true
         }}
       />
       <Stack.Screen

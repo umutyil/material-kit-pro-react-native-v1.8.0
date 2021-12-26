@@ -4,7 +4,9 @@ import { Button, Block, Text, Input, theme } from 'galio-framework';
 
 import { Icon, Patient } from '../components/';
 
+
 const { width } = Dimensions.get('screen');
+
 import patientImages from '../constants/images/patient';
 
 export default class Patients extends React.Component {
@@ -18,8 +20,8 @@ export default class Patients extends React.Component {
         contentContainerStyle={styles.products}>
         <Block flex>
         
-          {patientImages.map((img) => (
-            <Patient patient={img} horizontal />
+          {patientImages.map((img, index) => (
+            <Patient key={`patient-${index}`} patient={img} horizontal />
           ))} 
 
 

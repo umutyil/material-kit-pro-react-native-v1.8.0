@@ -2,16 +2,18 @@ export default [
   {
     title: 'Patient ID - 0001',
     // image: 'https://source.unsplash.com/lkMJcGDZLVs/840x840',
-    image: 'https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?crop=entropy&w=840&h=840&fit=crop',
+    image: 'https://w7.pngwing.com/pngs/984/200/png-transparent-computer-icons-medicine-encapsulated-postscript-sick-miscellaneous-silhouette-hospital.png',
     price: 180,
     horizontal: true,
+    assesment: 1,
   },
   {
     title: "Patient ID - 0002",
     // image: 'https://source.unsplash.com/t3zrEm88ehc/840x840',
-    image: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?crop=entropy&w=840&fit=crop',
+    image: 'https://w7.pngwing.com/pngs/984/200/png-transparent-computer-icons-medicine-encapsulated-postscript-sick-miscellaneous-silhouette-hospital-thumbnail.png',
     price: 220,
     horizontal: true,
+    assesment: 4,
   },
   {
     title: "Patient ID - 0003",
@@ -19,6 +21,7 @@ export default [
     image: 'https://images.unsplash.com/photo-1489924309280-34282407eca2?crop=entropy&w=840&h=840&fit=crop',
     price: 40,
     horizontal: true,
+    assesment: 1,
   },
   {
     title: "Patient ID - 0004",
@@ -26,6 +29,7 @@ export default [
     image: 'https://images.unsplash.com/photo-1495605952598-956edca588a4?crop=entropy&w=840&h=840&fit=crop',
     price: 188,
     horizontal: true,
+    assesment: 3,
   },
   {
     title: 'Patient ID - 0005',
@@ -33,5 +37,6 @@ export default [
     image: 'https://images.unsplash.com/photo-1505022610485-0249ba5b3675?crop=entropy&w=840&h=840&fit=crop',
     price: 180,
     horizontal: true,
+    assesment: 2,
   },
 ];

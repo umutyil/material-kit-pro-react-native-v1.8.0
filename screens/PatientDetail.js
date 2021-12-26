@@ -6,17 +6,19 @@ import { Icon, Product } from '../components';
 
 const { width } = Dimensions.get('screen');
 
-import { materialTheme, products, Images, tabs } from '../constants/';
+import { materialTheme, products, Images, tabs } from '../constants';
 
-class GetSmartHome extends React.Component {
+class PatientDetail extends React.Component {
 
   renderProducts = () => {
-    const { navigation } = this.props;
+    const { navigation, route } = this.props;
+    const patient = route.params?.patient;
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
+        <Text bold size={16} style={styles.title}>{patient.title} - {patient.price} days in hospital</Text>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-1`}
             onPress={() => navigation.navigate('Patients')}>
@@ -27,7 +29,7 @@ class GetSmartHome extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Patients</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>New Calculation</Text>
                 </Block>
               </ImageBackground>
 
@@ -44,14 +46,14 @@ class GetSmartHome extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>New Patient</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Calculations Overview</Text>
                 </Block>
               </ImageBackground>
 
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-            onPress={() => navigation.navigate('Patients')}>
+            onPress={() => navigation.navigate('Man')}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -59,7 +61,22 @@ class GetSmartHome extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Criteria</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Export</Text>
+                </Block>
+              </ImageBackground>
+
+            </Block>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback key={`getsmarthome-image-4`}
+            onPress={() => navigation.navigate('Man')}>
+            <Block flex card shadow style={styles.category}>
+
+              <ImageBackground
+                source={{ uri: Images.Products['Mustang'] }}
+                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
+                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
+                <Block style={styles.categoryTitle}>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Trends</Text>
                 </Block>
               </ImageBackground>
 
@@ -80,7 +97,7 @@ class GetSmartHome extends React.Component {
   }
 }
 
-export default withNavigation(GetSmartHome);
+export default withNavigation(PatientDetail);
 
 const styles = StyleSheet.create({
   home: {
