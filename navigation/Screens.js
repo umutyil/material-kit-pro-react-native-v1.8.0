@@ -40,6 +40,7 @@ import AboutScreen from "../screens/About";
 import AgreementScreen from "../screens/Agreement";
 
 import GetSmartHome from "../screens/GetSmartHome";
+import NewPatient from "../screens/NewPatient";
 
 import ICUHome from "../screens/ICUHome";
 
@@ -827,14 +828,13 @@ function HomeStack(props) {
         }}
       />
       <Stack.Screen
-        name="Deals"
-        component={DealsScreen}
+        name="NewPatient"
+        component={NewPatient}
         options={{
           header: ({ navigation, scene }) => (
             <Header
               back
-              tabs={tabs.deals}
-              title="Best Deals"
+              title="New Patient"
               navigation={navigation}
               scene={scene}
             />
@@ -842,7 +842,7 @@ function HomeStack(props) {
         }}
       />
       <Stack.Screen
-        name="Categories"
+        name="Patients"
         component={CategoriesScreen}
         options={{
           header: ({ navigation, scene, route }) => (

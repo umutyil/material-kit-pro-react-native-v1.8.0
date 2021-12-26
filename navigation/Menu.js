@@ -36,7 +36,8 @@ function CustomDrawerContent({
   const screens = [
     "Home",
     "ICU Assistant",
-    "Settings"
+    "Settings",
+    "Components"
   ];
   return (
     <Block

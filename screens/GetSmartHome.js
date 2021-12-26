@@ -1,61 +1,77 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView,ImageBackground, } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, ImageBackground, TouchableWithoutFeedback, } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
-
+import { withNavigation } from '@react-navigation/compat';
 import { Icon, Product } from '../components';
 
 const { width } = Dimensions.get('screen');
 
 import { materialTheme, products, Images, tabs } from '../constants/';
 
-export default class GetSmartHome extends React.Component {
-
-
-
+class GetSmartHome extends React.Component {
 
   renderProducts = () => {
+    const { navigation } = this.props;
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['Accessories'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>Patients</Text>
-              </Block>
-            </ImageBackground>
-          </Block>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['BMW'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>New Patient</Text>
-              </Block>
-            </ImageBackground>
-          </Block>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['Watches'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>Criteria</Text>
-              </Block>
-            </ImageBackground>
-          </Block>
-          
+          <TouchableWithoutFeedback
+            key={`getsmarthome-image-1`}
+            onPress={() => navigation.navigate('Patients')}>
+            <Block flex card shadow style={styles.category}>
+
+              <ImageBackground
+                source={{ uri: Images.Products['Accessories'] }}
+                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
+                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
+                <Block style={styles.categoryTitle}>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Patients</Text>
+                </Block>
+              </ImageBackground>
+
+            </Block>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            key={`getsmarthome-image-2`}
+            onPress={() => navigation.navigate('NewPatient')}>
+            <Block flex card shadow style={styles.category}>
+
+              <ImageBackground
+
+                source={{ uri: Images.Products['BMW'] }}
+                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
+                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
+                <Block style={styles.categoryTitle}>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>New Patient</Text>
+                </Block>
+              </ImageBackground>
+
+            </Block>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback key={`getsmarthome-image-3`}
+            onPress={() => navigation.navigate('NewPatient')}>
+            <Block flex card shadow style={styles.category}>
+
+              <ImageBackground
+                source={{ uri: Images.Products['Watches'] }}
+                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
+                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
+                <Block style={styles.categoryTitle}>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Criteria</Text>
+                </Block>
+              </ImageBackground>
+
+            </Block>
+          </TouchableWithoutFeedback>
         </Block>
       </ScrollView>
     )
   }
 
   render() {
+
     return (
       <Block flex center style={styles.home}>
         {this.renderProducts()}
@@ -63,6 +79,8 @@ export default class GetSmartHome extends React.Component {
     );
   }
 }
+
+export default withNavigation(GetSmartHome);
 
 const styles = StyleSheet.create({
   home: {
