@@ -46,6 +46,7 @@ import ICUHome from "../screens/ICUHome";
 
 import CustomDrawerContent from "./Menu";
 import { tabs } from "../constants/";
+import Patients from "../screens/Patients";
 
 const { width } = Dimensions.get("screen");
 
@@ -843,14 +844,12 @@ function HomeStack(props) {
       />
       <Stack.Screen
         name="Patients"
-        component={CategoriesScreen}
+        component={Patients}
         options={{
           header: ({ navigation, scene, route }) => (
             <Header
               back
-              tabs={tabs.categories}
-              tabIndex={tabs.categories[1].id}
-              title="Categories"
+              title="Patients"
               navigation={navigation}
               route={route}
               scene={scene}

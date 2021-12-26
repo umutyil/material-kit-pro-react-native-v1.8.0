@@ -51,7 +51,7 @@ class GetSmartHome extends React.Component {
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-            onPress={() => navigation.navigate('NewPatient')}>
+            onPress={() => navigation.navigate('Man')}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
