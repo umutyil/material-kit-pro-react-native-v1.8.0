@@ -8,7 +8,7 @@ const { width } = Dimensions.get('screen');
 
 import { materialTheme, products, Images, tabs } from '../constants';
 
-class NewCalculation extends React.Component {
+class CalculationResults extends React.Component {
 
   renderProducts = () => {
     const { navigation, route } = this.props;
@@ -18,10 +18,10 @@ class NewCalculation extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-        <Text bold size={16} style={styles.title}>{patient.title} - Assesment No: {patient.assesment} </Text>
+          <Text bold size={16} style={styles.title}>{patient.title} - Assesment No: {patient.assesment} </Text>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-1`}
-            onPress={() => navigation.navigate('MonitorVals', { patient: patient })}>
+            onPress={() => navigation.navigate('LeftVentricle', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -29,7 +29,7 @@ class NewCalculation extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Monitor Values</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Left Ventricle</Text>
                 </Block>
               </ImageBackground>
 
@@ -37,7 +37,7 @@ class NewCalculation extends React.Component {
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-2`}
-            onPress={() => navigation.navigate('TteVals', { patient: patient })}>
+            onPress={() => navigation.navigate('RightVentricle', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -46,14 +46,14 @@ class NewCalculation extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>TTE Values</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Right Ventricle</Text>
                 </Block>
               </ImageBackground>
 
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-            onPress={() => navigation.navigate('VentilatorVals', { patient: patient })}>
+            onPress={() => navigation.navigate('Perfusion', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -61,14 +61,14 @@ class NewCalculation extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Ventilator Values</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Perfusion/Metabolic</Text>
                 </Block>
               </ImageBackground>
 
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-4`}
-            onPress={() => navigation.navigate('PepVals', { patient: patient })}>
+            onPress={() => navigation.navigate('Preload', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -76,7 +76,7 @@ class NewCalculation extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Patient Evaluation Parameters</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Preload</Text>
                 </Block>
               </ImageBackground>
 
@@ -84,7 +84,7 @@ class NewCalculation extends React.Component {
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-5`}
-            onPress={() => navigation.navigate('BloodGasesVals', { patient: patient })}>
+            onPress={() => navigation.navigate('Afterload', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -92,7 +92,7 @@ class NewCalculation extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Blood Gases Values</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Afterload</Text>
                 </Block>
               </ImageBackground>
 
@@ -100,7 +100,7 @@ class NewCalculation extends React.Component {
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-6`}
-            onPress={() => navigation.navigate('LabVals', { patient: patient })}>
+            onPress={() => navigation.navigate('Ventilation', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -109,14 +109,14 @@ class NewCalculation extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Lab Values</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Ventilation</Text>
                 </Block>
               </ImageBackground>
 
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-7`}
-            onPress={() => navigation.navigate('InfusionVals', { patient: patient })}>
+            onPress={() => navigation.navigate('ClinicalScores', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -124,62 +124,13 @@ class NewCalculation extends React.Component {
                 style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
                 imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
                 <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Infusion Dose Calculator</Text>
+                  <Text size={18} bold color={theme.COLORS.WHITE}>Clinical Scores</Text>
                 </Block>
               </ImageBackground>
 
             </Block>
           </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback key={`getsmarthome-image-8`}
-            onPress={() => navigation.navigate('UnitsCalculator', { patient: patient })}>
-            <Block flex card shadow style={styles.category}>
 
-              <ImageBackground
-                source={{ uri: Images.Products['Mustang'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Units Calculator</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            key={`getsmarthome-image-9`}
-            onPress={() => navigation.navigate('NormalVals', { patient: patient })}>
-            <Block flex card shadow style={styles.category}>
-
-              <ImageBackground
-                source={{ uri: Images.Products['Accessories'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Normal Values</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
-          <Block flex center style={{ marginTop: 20 }}>
-                <Button
-                  size="large"
-                  shadowless
-                  style={{ height: 48 }}
-                  color={materialTheme.COLORS.BUTTON_COLOR}
-                  onPress={() => {
-                    // TODO: Save patient
-                    navigation.navigate('CalculationResults', {
-                      patient: patient
-                    });
-
-                  }
-                  }
-                >
-                  CALCULATE
-                </Button>
-
-              </Block>
         </Block>
       </ScrollView>
     )
@@ -195,7 +146,7 @@ class NewCalculation extends React.Component {
   }
 }
 
-export default withNavigation(NewCalculation);
+export default withNavigation(CalculationResults);
 
 const styles = StyleSheet.create({
   home: {
