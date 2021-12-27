@@ -51,6 +51,9 @@ export default class SignUp extends React.Component {
 
     this.setState({ active });
   }
+  handleQuantity = (id, qty) => {
+    this.setState({ [id]: qty });
+  }
 
   setVars = (obj) => {
     this.state = obj;

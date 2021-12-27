@@ -21,7 +21,7 @@ class PatientDetail extends React.Component {
         <Text bold size={16} style={styles.title}>{patient.title} - {patient.price} days in hospital</Text>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-1`}
-            onPress={() => navigation.navigate('Patients')}>
+            onPress={() => navigation.navigate('NewCalculation')}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -53,7 +53,7 @@ class PatientDetail extends React.Component {
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-            onPress={() => navigation.navigate('Man')}>
+            onPress={() => navigation.navigate('NewPatient')}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -68,7 +68,7 @@ class PatientDetail extends React.Component {
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-4`}
-            onPress={() => navigation.navigate('Man')}>
+            onPress={() => navigation.navigate('NewPatient')}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
