@@ -55,7 +55,7 @@ export default class PepVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="UO"
                   autoCapitalize="none"
@@ -68,7 +68,7 @@ export default class PepVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="IAP"
                   autoCapitalize="none"
@@ -81,7 +81,7 @@ export default class PepVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="FOUR"
                   autoCapitalize="none"
@@ -94,7 +94,7 @@ export default class PepVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="GCS"
                   autoCapitalize="none"
@@ -107,7 +107,7 @@ export default class PepVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="RASS"
                   autoCapitalize="none"

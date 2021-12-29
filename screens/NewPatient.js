@@ -12,17 +12,18 @@ const { height, width } = Dimensions.get('window');
 
 export default class NewPatient extends React.Component {
   state = {
-    Id: '-',
-    BirthDate: '-',
-    Gender: '-',
-    Height: '-',
-    Weight: '-',
-    AdmissionDate: '-',
-    Inclusion: '-',
-    Exclusion: '-',
-    Comorbidities: '-',
-    Reasonofohca: '-',
-    Ttm: '-',
+    patientCode: '-',
+    birthDate: '-',
+    gender: '-',
+    height: '-',
+    weight: '-',
+    admissionDate: '-',
+    inclusion: '-',
+    exclusion: '-',
+    comorbidities: '-',
+    reasonofocha: '-',
+    ttm: '-',
+    userId: 1,
     active: {
       user: false,
       email: false,
@@ -66,12 +67,12 @@ export default class NewPatient extends React.Component {
                   borderless
                   color="black"
                   type="number-pad"
-                  placeholder="Patient ID"
+                  placeholder="Patient Code"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.email ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('Id', text)}
-                  onBlur={() => this.toggleActive('Id')}
-                  onFocus={() => this.toggleActive('Id')}
+                  onChangeText={text => this.handleChange('patientCode', text)}
+                  onBlur={() => this.toggleActive('patientCode')}
+                  onFocus={() => this.toggleActive('patientCode')}
                 />
                  <Input
                   bgColor='transparent'
@@ -81,9 +82,9 @@ export default class NewPatient extends React.Component {
                   placeholder="Date of Birth"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('BirthDate', text)}
-                  onBlur={() => this.toggleActive('BirthDate')}
-                  onFocus={() => this.toggleActive('BirthDate')}
+                  onChangeText={text => this.handleChange('birthDate', text)}
+                  onBlur={() => this.toggleActive('birthDate')}
+                  onFocus={() => this.toggleActive('birthDate')}
                 />
                 <Select
                 bgColor='transparent'
@@ -93,7 +94,7 @@ export default class NewPatient extends React.Component {
                 textStyle={styles.dropdown_3_text}
                 borderless
                 color="white"
-                onSelect={(index, value) => this.handleQuantity('Gender', value)}
+                onSelect={(index, value) => this.handleQuantity('gender', value)}
               />
               <Input
                   bgColor='transparent'
@@ -104,9 +105,9 @@ export default class NewPatient extends React.Component {
                   placeholder="Height (cm)"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.email ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('Height', text)}
-                  onBlur={() => this.toggleActive('Height')}
-                  onFocus={() => this.toggleActive('Height')}
+                  onChangeText={text => this.handleChange('height', text)}
+                  onBlur={() => this.toggleActive('height')}
+                  onFocus={() => this.toggleActive('height')}
                 />
                 <Input
                   bgColor='transparent'
@@ -117,21 +118,21 @@ export default class NewPatient extends React.Component {
                   placeholder="Weight (kg)"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.email ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('Weight', text)}
-                  onBlur={() => this.toggleActive('Weight')}
-                  onFocus={() => this.toggleActive('Weight')}
+                  onChangeText={text => this.handleChange('weight', text)}
+                  onBlur={() => this.toggleActive('weight')}
+                  onFocus={() => this.toggleActive('weight')}
                 />
                 <Input
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
                   color="black"
-                  placeholder="Admissin Date"
+                  placeholder="Admission Date"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('AdmissionDate', text)}
-                  onBlur={() => this.toggleActive('AdmissionDate')}
-                  onFocus={() => this.toggleActive('AdmissionDate')}
+                  onChangeText={text => this.handleChange('admissionDate', text)}
+                  onBlur={() => this.toggleActive('admissionDate')}
+                  onFocus={() => this.toggleActive('admissionDate')}
                 />
                 
                 <Input
@@ -142,9 +143,9 @@ export default class NewPatient extends React.Component {
                   placeholder="Inclusion Criteria"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('Inclusion', text)}
-                  onBlur={() => this.toggleActive('Inclusion')}
-                  onFocus={() => this.toggleActive('Inclusion')}
+                  onChangeText={text => this.handleChange('inclusion', text)}
+                  onBlur={() => this.toggleActive('inclusion')}
+                  onFocus={() => this.toggleActive('inclusion')}
                 />
                 <Input
                   bgColor='transparent'
@@ -154,9 +155,9 @@ export default class NewPatient extends React.Component {
                   placeholder="Exclusion Criteria"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                  onChangeText={text => this.handleChange('Exclusion', text)}
-                  onBlur={() => this.toggleActive('Exclusion')}
-                  onFocus={() => this.toggleActive('Exclusion')}
+                  onChangeText={text => this.handleChange('exclusion', text)}
+                  onBlur={() => this.toggleActive('exclusion')}
+                  onFocus={() => this.toggleActive('exclusion')}
                 />
                
                 <Select
@@ -167,7 +168,7 @@ export default class NewPatient extends React.Component {
                 textStyle={styles.dropdown_3_text}
                 borderless
                 color="white"
-                onSelect={(index, value) => this.handleQuantity('Comorbidities', value)}
+                onSelect={(index, value) => this.handleQuantity('comorbidities', value)}
               />
               <Select
                 bgColor='transparent'
@@ -177,7 +178,7 @@ export default class NewPatient extends React.Component {
                 textStyle={styles.dropdown_3_text}
                 borderless
                 color="white"
-                onSelect={(index, value) => this.handleQuantity('Reasonofohca', value)}
+                onSelect={(index, value) => this.handleQuantity('reasonofocha', value)}
               />
               <Select
                 bgColor='transparent'
@@ -187,7 +188,7 @@ export default class NewPatient extends React.Component {
                 textStyle={styles.dropdown_3_text}
                 borderless
                 color={materialTheme.COLORS.BUTTON_COLOR}
-                onSelect={(index, value) => this.handleQuantity('Ttm', value)}
+                onSelect={(index, value) => this.handleQuantity('ttm', value)}
               />
                 
               </Block>
@@ -198,10 +199,37 @@ export default class NewPatient extends React.Component {
                   style={{ height: 48 }}
                   color={materialTheme.COLORS.BUTTON_COLOR}
                   onPress={() => {
-                    // TODO: Save patient
-                    navigation.navigate('Patients', {
-                      regUser: this.state
-                   });
+                    console.log(JSON.stringify(this.state));
+                    fetch('https://getsmart.premedix.sk​/Patient/Patient/Register', {
+                        method: 'POST',
+                        headers: {
+                          Accept: 'application/json',
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(this.state)
+                      }).then(response => response.json()).then((json) => {
+                        console.log(json);
+                        if (json.isSuccess) {
+                          Alert.alert(
+                            "Success",
+                            "Registration successful",
+                            [
+                              { text: "OK", onPress: () => navigation.navigate('Patients') }
+                            ]
+                          );
+
+                        } else {
+                          Alert.alert(
+                            "Error",
+                            json.message,
+                            [
+                              { text: "OK", onPress: () => console.log("OK Pressed") }
+                            ]
+                          );
+                        }
+                      }).catch((error) => {
+                        console.error(JSON.stringify(error));
+                      });
                     
                 }
                 }

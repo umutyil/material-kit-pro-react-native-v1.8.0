@@ -63,7 +63,7 @@ export default class InfusionVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Mg"
                   autoCapitalize="none"
@@ -76,7 +76,7 @@ export default class InfusionVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="ml"
                   autoCapitalize="none"

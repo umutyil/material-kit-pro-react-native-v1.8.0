@@ -62,7 +62,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Arterial pH"
                   autoCapitalize="none"
@@ -75,7 +75,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Arterial pCO2"
                   autoCapitalize="none"
@@ -88,7 +88,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Arterial pO2"
                   autoCapitalize="none"
@@ -101,7 +101,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Arterial HCO3"
                   autoCapitalize="none"
@@ -114,7 +114,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Arterial SaO2"
                   autoCapitalize="none"
@@ -127,7 +127,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Arterial Lactate"
                   autoCapitalize="none"
@@ -140,7 +140,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Venous pH"
                   autoCapitalize="none"
@@ -153,7 +153,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Venous pCO2"
                   autoCapitalize="none"
@@ -166,7 +166,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Venous pO2"
                   autoCapitalize="none"
@@ -179,7 +179,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Venous pHCO3"
                   autoCapitalize="none"
@@ -192,7 +192,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Venous SvO2"
                   autoCapitalize="none"
@@ -205,7 +205,7 @@ export default class BloodGasesVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Venous Lactate"
                   autoCapitalize="none"

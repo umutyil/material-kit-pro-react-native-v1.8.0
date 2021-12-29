@@ -56,7 +56,7 @@ export default class MonitorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Heart Rate"
                   autoCapitalize="none"
@@ -69,7 +69,7 @@ export default class MonitorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="SBP"
                   autoCapitalize="none"
@@ -82,7 +82,7 @@ export default class MonitorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="DBP"
                   autoCapitalize="none"
@@ -95,7 +95,7 @@ export default class MonitorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="CVP"
                   autoCapitalize="none"
@@ -108,7 +108,7 @@ export default class MonitorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="SpO2"
                   autoCapitalize="none"
@@ -121,7 +121,7 @@ export default class MonitorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Temperature"
                   autoCapitalize="none"

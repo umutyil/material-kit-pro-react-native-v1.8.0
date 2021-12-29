@@ -67,7 +67,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="IVCd max/min"
                   autoCapitalize="none"
@@ -80,7 +80,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="LVOT diameter"
                   autoCapitalize="none"
@@ -93,7 +93,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="LVEDV"
                   autoCapitalize="none"
@@ -106,7 +106,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="LVESV"
                   autoCapitalize="none"
@@ -119,7 +119,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="LAV"
                   autoCapitalize="none"
@@ -132,7 +132,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="E/A"
                   autoCapitalize="none"
@@ -145,7 +145,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="E/É lat (sept option)"
                   autoCapitalize="none"
@@ -158,7 +158,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="TAPSE"
                   autoCapitalize="none"
@@ -171,7 +171,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="RV EDA"
                   autoCapitalize="none"
@@ -184,7 +184,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="RV ESA"
                   autoCapitalize="none"
@@ -197,7 +197,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="TR Vmax"
                   autoCapitalize="none"
@@ -210,7 +210,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="LVOT Vmax max/min"
                   autoCapitalize="none"
@@ -223,7 +223,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="LVOT VTI max/min"
                   autoCapitalize="none"
@@ -236,7 +236,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="RVOT diam"
                   autoCapitalize="none"
@@ -249,7 +249,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="RVOT VTI"
                   autoCapitalize="none"
@@ -262,7 +262,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Pulm reg Vmax"
                   autoCapitalize="none"
@@ -275,7 +275,7 @@ export default class TteVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Pulm reg Vend-diast"
                   autoCapitalize="none"

@@ -18,7 +18,7 @@ class NewCalculation extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-        <Text bold size={16} style={styles.title}>{patient.title} - Assesment No: {patient.assesment} </Text>
+        <Text bold size={16} style={styles.title}>{patient.patientCode} - Assesment No: {patient.assesment} </Text>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-1`}
             onPress={() => navigation.navigate('MonitorVals', { patient: patient })}>

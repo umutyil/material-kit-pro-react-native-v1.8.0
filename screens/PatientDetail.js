@@ -18,10 +18,10 @@ class PatientDetail extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-        <Text bold size={16} style={styles.title}>{patient.title} - {patient.price} days in hospital</Text>
+        <Text bold size={16} style={styles.title}>{patient.patientCode} - {patient.price} days in hospital</Text>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-1`}
-            onPress={() => navigation.navigate('NewCalculation')}>
+            onPress={() => navigation.navigate('NewCalculation', { patient: patient })}>
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground

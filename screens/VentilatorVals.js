@@ -68,7 +68,7 @@ export default class VentilatorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="FiO2"
                   autoCapitalize="none"
@@ -81,7 +81,7 @@ export default class VentilatorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="PEEP"
                   autoCapitalize="none"
@@ -94,7 +94,7 @@ export default class VentilatorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Tidal Volume"
                   autoCapitalize="none"
@@ -107,7 +107,7 @@ export default class VentilatorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="ETCO2"
                   autoCapitalize="none"
@@ -120,7 +120,7 @@ export default class VentilatorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="PIP"
                   autoCapitalize="none"
@@ -133,7 +133,7 @@ export default class VentilatorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="RR"
                   autoCapitalize="none"
@@ -146,7 +146,7 @@ export default class VentilatorVals extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Ppl"
                   autoCapitalize="none"

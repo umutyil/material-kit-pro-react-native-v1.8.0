@@ -1,43 +1,61 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Icon, Patient } from '../components/';
-
+import { getPatients } from '../store/actions/Patients';
 
 const { width } = Dimensions.get('screen');
 
 import patientImages from '../constants/images/patient';
 
-export default class Patients extends React.Component {
+function Patients() {
+  const { patients } = useSelector(state => state.patientsReducer);
 
+  const userId = 1;
+  const dispatch = useDispatch();
+  const getPatientList = (userId) => dispatch(getPatients(userId));
+  useEffect(() => {
+    getPatientList(userId);
+    console.log('patients fetched:' + JSON.stringify(patients));
+  }, []);
 
-  renderProducts = () => {
-    console.log(patientImages);
+  if (patients && patients.length > 0) {
     return (
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.products}>
-        <Block flex>
-        
-          {patientImages.map((img, index) => (
-            <Patient key={`patient-${index}`} patient={img} horizontal />
-          ))} 
-
-
-        </Block>
-      </ScrollView>
+      <Block flex center style={styles.home}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.products}>
+          <Block flex>
+            {patients.map((img, index) => (
+              <Patient key={`patient-${index}`} patient={img} horizontal />
+            ))}
+          </Block>
+        </ScrollView>
+      </Block>
+    );
+  } else {
+    return (
+      <Block flex center style={styles.home}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.products}>
+          <Block flex>
+            <Text center color="black" size={14}>
+              No Patients Recorded Yet.
+            </Text>
+          </Block>
+        </ScrollView>
+      </Block>
     )
   }
 
-  render() {
-    return (
-      <Block flex center style={styles.home}>
-        {this.renderProducts()}
-      </Block>
-    );
-  }
+
+
 }
+
+export default Patients;
 
 const styles = StyleSheet.create({
   home: {

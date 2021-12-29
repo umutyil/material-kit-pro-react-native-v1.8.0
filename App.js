@@ -4,6 +4,8 @@ import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
 import { Block, GalioProvider } from 'galio-framework';
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+import { store } from './storex';
 
 // Before rendering any navigation stack
 import { enableScreens } from 'react-native-screens';
@@ -61,14 +63,16 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <NavigationContainer>
-          <GalioProvider theme={materialTheme}>
-            <Block flex>
-              {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-              <Screens />
-            </Block>
-          </GalioProvider>
-        </NavigationContainer>
+        <Provider store={store}>
+          <NavigationContainer>
+            <GalioProvider theme={materialTheme}>
+              <Block flex>
+                {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+                <Screens />
+              </Block>
+            </GalioProvider>
+          </NavigationContainer>
+        </Provider>
       );
     }
   }
