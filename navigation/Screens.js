@@ -908,7 +908,7 @@ function HomeStack(props) {
       />
       <Stack.Screen
         name="NewCalculation"
-        component={NewCollection}
+        component={NewCalculation}
         options={{
           header: ({ navigation, scene, route }) => (
             <Header

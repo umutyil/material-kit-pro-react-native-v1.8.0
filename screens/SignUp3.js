@@ -96,7 +96,7 @@ export default class SignUp extends React.Component {
                     style={{ height: 48 }}
                     color={materialTheme.COLORS.BUTTON_COLOR}
                     onPress={() => {
-                      fetch('https://10.242.174.78​/SmartUser​/SmartUser​/Register', {
+                      fetch('https://getsmart.premedix.sk​/SmartUser​/SmartUser​/Register', {
                         method: 'POST',
                         headers: {
                           Accept: 'application/json',

@@ -64,7 +64,7 @@ export default class NewPatient extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="number-pad"
                   placeholder="Patient ID"
                   autoCapitalize="none"
@@ -77,7 +77,7 @@ export default class NewPatient extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   placeholder="Date of Birth"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
@@ -99,7 +99,7 @@ export default class NewPatient extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="number-pad"
                   placeholder="Height (cm)"
                   autoCapitalize="none"
@@ -112,7 +112,7 @@ export default class NewPatient extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   type="decimal-pad"
                   placeholder="Weight (kg)"
                   autoCapitalize="none"
@@ -125,7 +125,7 @@ export default class NewPatient extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   placeholder="Admissin Date"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
@@ -138,7 +138,7 @@ export default class NewPatient extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   placeholder="Inclusion Criteria"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}
@@ -150,7 +150,7 @@ export default class NewPatient extends React.Component {
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
-                  color="white"
+                  color="black"
                   placeholder="Exclusion Criteria"
                   autoCapitalize="none"
                   style={[styles.input, this.state.active.user ? styles.inputActive : null]}

@@ -144,7 +144,7 @@ export default class SignIn extends React.Component {
                     if(em == "test@premedix.org" && pass == "itestpremedix"){
                       navigation.navigate('App');
                     } else {
-                      fetch('https://10.242.174.78​/SmartUser​/SmartUser​/Login', {
+                      fetch('https://getsmart.premedix.sk​/SmartUser​/SmartUser​/Login', {
                         method: 'POST',
                         headers: {
                           Accept: 'application/json',
