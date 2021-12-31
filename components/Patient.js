@@ -22,7 +22,7 @@ class Patient extends React.Component {
         <TouchableWithoutFeedback onPress={() => navigation.navigate('PatientDetail', { patient: patient })}>
           <Block flex space="between" style={styles.productDescription}>
             <Text size={14} style={styles.productTitle}>{patient.patientCode}</Text>
-            <Text size={12} muted={!priceColor} color={priceColor}>{patient.price} Days in Hospital</Text>
+            <Text size={12} muted={!priceColor} color={priceColor}>{patient.daysInHospital} Days in Hospital</Text>
           </Block>
         </TouchableWithoutFeedback>
       </Block>
