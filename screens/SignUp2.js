@@ -11,35 +11,7 @@ import { HeaderHeight } from "../constants/utils";
 const { height, width } = Dimensions.get('window');
 
 export default class SignUp extends React.Component {
-  state = {
-    user: '-',
-    Email: '-',
-    Firstname: '-',
-    Surname: '-',
-    Dateofbirth: '-',
-    Suffix: '-',
-    Password: '-',
-    RepeatPassword: '-',
-    Specilization: '-',
-    PracticeYears: '-',
-    Academic: '-',
-    Echot: '-',
-    Hemo: '-',
-    Researcher: '-',
-    Proffessor: '-',
-    Country: '-',
-    City: '-',
-    Hospital: '-',
-    Hosunit: '-',
-    Typeunit: '-',
-    Adress: '-',
-    Beds: '-',
-    active: {
-      user: false,
-      email: false,
-      password: false,
-    }
-  }
+  state = this.props.route.params.regUser;
 
   handleChange = (name, value) => {
     this.setState({ [name]: value });
@@ -55,16 +27,8 @@ export default class SignUp extends React.Component {
     this.setState({ [id]: qty });
   }
 
-  setVars = (obj) => {
-    this.state = obj;
-    console.log("yeni state");
-    console.log(this.state);
-
-  }
-
   render() {
-    const item = this.props.route.params.regUser;
-    this.setVars(item);
+
     const { navigation } = this.props;
     let units = ['Intensive care unit', 'Cardiac intensive care unit', 'Coronary care unit', 'Emergency department', 'Trauma unit'];
     return (
@@ -165,6 +129,7 @@ export default class SignUp extends React.Component {
                     bgColor='transparent'
                     placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                     borderless
+                    type="number-pad"
                     color="white"
                     placeholder="Number of beds"
                     autoCapitalize="none"
@@ -182,9 +147,9 @@ export default class SignUp extends React.Component {
                     shadowless
                     style={{ height: 48 }}
                     color={materialTheme.COLORS.BUTTON_COLOR}
-                    onPress={() => navigation.navigate('Sign Up Step 4'), {
+                    onPress={() => navigation.navigate('Sign Up Step 4', {
                       regUser: this.state
-                    }}
+                    })}
                   >
                     NEXT
                   </Button>
@@ -193,7 +158,9 @@ export default class SignUp extends React.Component {
                     shadowless
                     style={{ height: 48 }}
                     color={materialTheme.COLORS.BUTTON_COLOR}
-                    onPress={() => navigation.navigate('Sign Up Step 2')}
+                    onPress={() => navigation.navigate('Sign Up Step 2', {
+                      regUser: this.state
+                    })}
                   >
                     BACK
                   </Button>

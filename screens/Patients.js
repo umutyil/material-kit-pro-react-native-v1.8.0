@@ -2,22 +2,39 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 import { useSelector, useDispatch } from 'react-redux';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Icon, Patient } from '../components/';
 import { getPatients } from '../store/actions/Patients';
 
 const { width } = Dimensions.get('screen');
 
-import patientImages from '../constants/images/patient';
-
 function Patients() {
+
+  const componentDidMount = async () => {
+    var credentials = {};
+    try {
+      var ass = await AsyncStorage.getItem('session');
+      if (ass) {
+        credentials = JSON.parse(ass);
+        console.log(
+          'Credentials successfully loaded for user ' + JSON.stringify(credentials)
+        );
+        userId = credentials.userId;
+      } else {
+        console.log('No credentials stored');
+      }
+    } catch (error) {
+      console.log("Keychain couldn't be accessed!", error);
+    }
+  };
+
   const { patients } = useSelector(state => state.patientsReducer);
 
-  const userId = 1;
+  var userId = 1;
   const dispatch = useDispatch();
   const getPatientList = (userId) => dispatch(getPatients(userId));
   useEffect(() => {
-    getPatientList(userId);
+    componentDidMount().then(() =>  getPatientList(userId));
     console.log('patients fetched:' + JSON.stringify(patients));
   }, []);
 

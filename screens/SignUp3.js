@@ -11,35 +11,7 @@ import { HeaderHeight } from "../constants/utils";
 const { height, width } = Dimensions.get('window');
 
 export default class SignUp extends React.Component {
-  state = {
-    user: '-',
-    Email: '-',
-    Firstname: '-',
-    Surname: '-',
-    Dateofbirth: '-',
-    Suffix: '-',
-    Password: '-',
-    RepeatPassword: '-',
-    Specilization: '-',
-    PracticeYears: '-',
-    Academic: '-',
-    Echot: '-',
-    Hemo: '-',
-    Researcher: '-',
-    Proffessor: '-',
-    Country: '-',
-    City: '-',
-    Hospital: '-',
-    Hosunit: '-',
-    Typeunit: '-',
-    Adress: '-',
-    Beds: '-',
-    active: {
-      user: false,
-      email: false,
-      password: false,
-    }
-  }
+  state = this.props.route.params.regUser;
 
   handleChange = (name, value) => {
     this.setState({ [name]: value });
@@ -51,17 +23,8 @@ export default class SignUp extends React.Component {
 
     this.setState({ active });
   }
-  setVars = (obj) => {
-    this.state = obj;
-    console.log("yeni state");
-    console.log(this.state);
-
-  }
-
 
   render() {
-    const item = this.props.route.params.regUser;
-    this.setVars(item);
     const { navigation } = this.props;
     let suffixList = [{ value: 'Dr.' }, { value: 'Mr.' }, { value: 'Ms.' }, { value: 'Mrs.' }, { value: 'Prof' }];
 
@@ -96,36 +59,46 @@ export default class SignUp extends React.Component {
                     style={{ height: 48 }}
                     color={materialTheme.COLORS.BUTTON_COLOR}
                     onPress={() => {
-                      fetch('https://getsmart.premedix.sk​/SmartUser​/SmartUser​/Register', {
-                        method: 'POST',
-                        headers: {
-                          Accept: 'application/json',
-                          'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(this.state)
-                      }).then((json) => {
-                        console.log(json);
-                        if (json.isSuccess) {
-                          Alert.alert(
-                            "Success",
-                            "Registration successful",
-                            [
-                              { text: "OK", onPress: () => navigation.navigate('Sign In') }
-                            ]
-                          );
+                      console.log("register işlemi");
+                      console.log(JSON.stringify(this.state));
+                      try {
+                        fetch('https://getsmart.premedix.sk/SmartUser/SmartUser/Register', {
+                          method: 'POST',
+                          headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify(this.state)
+                        }).then(response => {
+                          console.log(JSON.stringify(response, null, 4));
+                          return response.json();
+                        }).then((json) => {
+                          console.log(json);
+                          if (json.isSuccess) {
+                            Alert.alert(
+                              "Success",
+                              "Registration successful",
+                              [
+                                { text: "OK", onPress: () => navigation.navigate('Sign In') }
+                              ]
+                            );
 
-                        } else {
-                          Alert.alert(
-                            "Error",
-                            json.message,
-                            [
-                              { text: "OK", onPress: () => console.log("OK Pressed") }
-                            ]
-                          );
-                        }
-                      }).catch((error) => {
-                        console.error(error);
-                      });
+                          } else {
+                            Alert.alert(
+                              "Error",
+                              json.message,
+                              [
+                                { text: "OK", onPress: () => console.log("OK Pressed") }
+                              ]
+                            );
+                          }
+                        }).catch((error) => {
+                          console.error(error);
+                        });
+                      }
+                      catch (error) {
+                        console.error(JSON.stringify(error));
+                      }
 
                     }}
                   >
@@ -146,7 +119,7 @@ export default class SignUp extends React.Component {
             </ScrollView>
           </KeyboardAvoidingView>
         </Block>
-      </LinearGradient>
+      </LinearGradient >
     );
   }
 }

@@ -3,7 +3,7 @@ import { Alert, Dimensions, StyleSheet, KeyboardAvoidingView, Platform, ScrollVi
 
 import { Block, Button, Input, Text, theme } from 'galio-framework';
 import { Select } from '../components';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from 'expo-linear-gradient';
 import { materialTheme } from '../constants';
 import { HeaderHeight } from "../constants/utils";
@@ -31,6 +31,8 @@ export default class NewPatient extends React.Component {
     }
   }
 
+
+
   handleChange = (name, value) => {
     this.setState({ [name]: value });
   }
@@ -46,21 +48,40 @@ export default class NewPatient extends React.Component {
     this.setState({ active });
   }
 
+  async componentDidMount() {
+    var credentials = {};
+    try {
+      var ass = await AsyncStorage.getItem('session');
+      if (ass) {
+        credentials = JSON.parse(ass);
+        console.log(
+          'Credentials successfully loaded for user ' + JSON.stringify(credentials)
+        );
+        this.handleChange('userId', credentials.userId)
+      } else {
+        console.log('No credentials stored');
+      }
+    } catch (error) {
+      console.log("Keychain couldn't be accessed!", error);
+    }
+  }
+
 
   render() {
     const { navigation } = this.props;
-    let genderList = ['Male','Female'];
-    let comorbidityList = ['Coronary artery disease','Previous MI','Previous PCI','Previous CABG','Hypertension','COPD/asthma','Diabetes mellitus','Chronic heart failure','Chronic kidney disease','Stroke','Pulmonary hypertension','Cancer','Immunosuppression ','Smoking','Obesity ','Congenital heart disease','None'];
-    let ohcaList = ['Acute coronary syndrome','Acute respiratory failure','Acute neurological event','Primary severe arrhythmia','Pulmonary embolism','Ao dissection','Acute HF','Decompendated HF','Valve disease','Unknown'];
-    let ttmList = ['Invasive TTM','Non-invasive TTM','Target temperature','Time of cooling','Minimal temperature achieved','Time of fever control after cooling'];
+
+    let genderList = ['Male', 'Female'];
+    let comorbidityList = ['Coronary artery disease', 'Previous MI', 'Previous PCI', 'Previous CABG', 'Hypertension', 'COPD/asthma', 'Diabetes mellitus', 'Chronic heart failure', 'Chronic kidney disease', 'Stroke', 'Pulmonary hypertension', 'Cancer', 'Immunosuppression ', 'Smoking', 'Obesity ', 'Congenital heart disease', 'None'];
+    let ohcaList = ['Acute coronary syndrome', 'Acute respiratory failure', 'Acute neurological event', 'Primary severe arrhythmia', 'Pulmonary embolism', 'Ao dissection', 'Acute HF', 'Decompendated HF', 'Valve disease', 'Unknown'];
+    let ttmList = ['Invasive TTM', 'Non-invasive TTM', 'Target temperature', 'Time of cooling', 'Minimal temperature achieved', 'Time of fever control after cooling'];
     return (
       <Block flex middle>
-          <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : "padding"} enabled > 
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : "padding"} enabled >
           <ScrollView>
-            
+
             <Block flex={1} center space="between">
               <Block center>
-                
+
                 <Input
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
@@ -74,7 +95,7 @@ export default class NewPatient extends React.Component {
                   onBlur={() => this.toggleActive('patientCode')}
                   onFocus={() => this.toggleActive('patientCode')}
                 />
-                 <Input
+                <Input
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
@@ -87,16 +108,16 @@ export default class NewPatient extends React.Component {
                   onFocus={() => this.toggleActive('birthDate')}
                 />
                 <Select
-                bgColor='transparent'
-                defaultValue='Please select your Gender'
-                options={genderList}
-                style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                textStyle={styles.dropdown_3_text}
-                borderless
-                color="white"
-                onSelect={(index, value) => this.handleQuantity('gender', value)}
-              />
-              <Input
+                  bgColor='transparent'
+                  defaultValue='Please select your Gender'
+                  options={genderList}
+                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
+                  textStyle={styles.dropdown_3_text}
+                  borderless
+                  color="white"
+                  onSelect={(index, value) => this.handleQuantity('gender', value)}
+                />
+                <Input
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   borderless
@@ -134,7 +155,7 @@ export default class NewPatient extends React.Component {
                   onBlur={() => this.toggleActive('admissionDate')}
                   onFocus={() => this.toggleActive('admissionDate')}
                 />
-                
+
                 <Input
                   bgColor='transparent'
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
@@ -159,85 +180,86 @@ export default class NewPatient extends React.Component {
                   onBlur={() => this.toggleActive('exclusion')}
                   onFocus={() => this.toggleActive('exclusion')}
                 />
-               
+
                 <Select
-                bgColor='transparent'
-                defaultValue='Please select Comorbidities'
-                options={comorbidityList}
-                style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                textStyle={styles.dropdown_3_text}
-                borderless
-                color="white"
-                onSelect={(index, value) => this.handleQuantity('comorbidities', value)}
-              />
-              <Select
-                bgColor='transparent'
-                defaultValue='Please select Reason of OHCA'
-                options={ohcaList}
-                style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                textStyle={styles.dropdown_3_text}
-                borderless
-                color="white"
-                onSelect={(index, value) => this.handleQuantity('reasonofocha', value)}
-              />
-              <Select
-                bgColor='transparent'
-                defaultValue='Please select TTM'
-                options={ttmList}
-                style={[styles.input, this.state.active.user ? styles.inputActive : null]}
-                textStyle={styles.dropdown_3_text}
-                borderless
-                color={materialTheme.COLORS.BUTTON_COLOR}
-                onSelect={(index, value) => this.handleQuantity('ttm', value)}
-              />
-                
+                  bgColor='transparent'
+                  defaultValue='Please select Comorbidities'
+                  options={comorbidityList}
+                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
+                  textStyle={styles.dropdown_3_text}
+                  borderless
+                  color="white"
+                  onSelect={(index, value) => this.handleQuantity('comorbidities', value)}
+                />
+                <Select
+                  bgColor='transparent'
+                  defaultValue='Please select Reason of OHCA'
+                  options={ohcaList}
+                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
+                  textStyle={styles.dropdown_3_text}
+                  borderless
+                  color="white"
+                  onSelect={(index, value) => this.handleQuantity('reasonofocha', value)}
+                />
+                <Select
+                  bgColor='transparent'
+                  defaultValue='Please select TTM'
+                  options={ttmList}
+                  style={[styles.input, this.state.active.user ? styles.inputActive : null]}
+                  textStyle={styles.dropdown_3_text}
+                  borderless
+                  color={materialTheme.COLORS.BUTTON_COLOR}
+                  onSelect={(index, value) => this.handleQuantity('ttm', value)}
+                />
+
               </Block>
               <Block flex center style={{ marginTop: 20 }}>
                 <Button
-                size="large"
+                  size="large"
                   shadowless
                   style={{ height: 48 }}
                   color={materialTheme.COLORS.BUTTON_COLOR}
                   onPress={() => {
+                    console.log("Gönderilen hasta");
                     console.log(JSON.stringify(this.state));
                     fetch('https://getsmart.premedix.sk​/Patient/Patient/Register', {
-                        method: 'POST',
-                        headers: {
-                          Accept: 'application/json',
-                          'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(this.state)
-                      }).then(response => response.json()).then((json) => {
-                        console.log(json);
-                        if (json.isSuccess) {
-                          Alert.alert(
-                            "Success",
-                            "Registration successful",
-                            [
-                              { text: "OK", onPress: () => navigation.navigate('Patients') }
-                            ]
-                          );
+                      method: 'POST',
+                      headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(this.state)
+                    }).then(response => response.json()).then((json) => {
+                      console.log(json);
+                      if (json.isSuccess) {
+                        Alert.alert(
+                          "Success",
+                          "Registration successful",
+                          [
+                            { text: "OK", onPress: () => navigation.navigate('Patients') }
+                          ]
+                        );
 
-                        } else {
-                          Alert.alert(
-                            "Error",
-                            json.message,
-                            [
-                              { text: "OK", onPress: () => console.log("OK Pressed") }
-                            ]
-                          );
-                        }
-                      }).catch((error) => {
-                        console.error(JSON.stringify(error));
-                      });
-                    
-                }
-                }
+                      } else {
+                        Alert.alert(
+                          "Error",
+                          json.message,
+                          [
+                            { text: "OK", onPress: () => console.log("OK Pressed") }
+                          ]
+                        );
+                      }
+                    }).catch((error) => {
+                      console.error(JSON.stringify(error));
+                    });
+
+                  }
+                  }
                 >
                   SAVE
                 </Button>
                 <Button
-                size="large"
+                  size="large"
                   shadowless
                   style={{ height: 48 }}
                   color={materialTheme.COLORS.BUTTON_COLOR}
@@ -245,13 +267,13 @@ export default class NewPatient extends React.Component {
                 >
                   BACK
                 </Button>
-                
+
               </Block>
             </Block>
-            </ScrollView>
-          </KeyboardAvoidingView>
-        </Block>
-      
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </Block>
+
     );
   }
 }

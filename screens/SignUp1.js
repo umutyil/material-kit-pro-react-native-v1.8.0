@@ -11,38 +11,12 @@ import { HeaderHeight } from "../constants/utils";
 const { height, width } = Dimensions.get('window');
 
 export default class SignUp extends React.Component {
-  state = {
-    user: '-',
-    Email: '-',
-    Firstname: '-',
-    Surname: '-',
-    Dateofbirth: '-',
-    Suffix: '-',
-    Password: '-',
-    RepeatPassword: '-',
-    Specilization: '-',
-    PracticeYears: '-',
-    Academic: '-',
-    Echot: '-',
-    Hemo: '-',
-    Researcher: '-',
-    Proffessor: '-',
-    Country: '-',
-    City: '-',
-    Hospital: '-',
-    Hosunit: '-',
-    Typeunit: '-',
-    Adress: '-',
-    Beds: '-',
-    active: {
-      user: false,
-      email: false,
-      password: false,
-    }
-  }
+  state = this.props.route.params.regUser;
 
   handleChange = (name, value) => {
     this.setState({ [name]: value });
+    console.log(this.state);
+    console.log('değişen');
   }
 
   toggleActive = (name) => {
@@ -55,16 +29,8 @@ export default class SignUp extends React.Component {
     this.setState({ [id]: qty });
   }
 
-  setVars = (obj) => {
-    this.state = obj;
-    console.log("yeni state");
-    console.log(this.state);
-
-  }
-
   render() {
-    const item = this.props.route.params.regUser;
-    this.setVars(item);
+    
     const { navigation } = this.props;
     let specialization = ['Critical care', 'Anesthesia', 'Cardiology', 'Emergenciology', 'Internal medicine', 'None'];
     let yesNo = ['Yes', 'No'];
@@ -106,6 +72,7 @@ export default class SignUp extends React.Component {
                     bgColor='transparent'
                     placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                     borderless
+                    type="number-pad"
                     color="white"
                     placeholder="Years of Experience"
                     autoCapitalize="none"
@@ -179,7 +146,9 @@ export default class SignUp extends React.Component {
                     shadowless
                     style={{ height: 48 }}
                     color={materialTheme.COLORS.BUTTON_COLOR}
-                    onPress={() => navigation.navigate('Sign Up')}
+                    onPress={() => navigation.navigate('Sign Up', {
+                      regUser: this.state
+                    })}
                   >
                     BACK
                   </Button>
