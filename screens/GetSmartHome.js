@@ -18,54 +18,28 @@ class GetSmartHome extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <TouchableWithoutFeedback
-            key={`getsmarthome-image-1`}
-            onPress={() => navigation.navigate('Patients')}>
-            <Block flex card shadow style={styles.category}>
-
-              <ImageBackground
-                source={{ uri: Images.Products['Accessories'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Patients</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            key={`getsmarthome-image-2`}
-            onPress={() => navigation.navigate('NewPatient')}>
-            <Block flex card shadow style={styles.category}>
-
-              <ImageBackground
-
-                source={{ uri: Images.Products['BMW'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>New Patient</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-           >
-            <Block flex card shadow style={styles.category}>
-
-              <ImageBackground
-                source={{ uri: Images.Products['Watches'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Criteria</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]} 
+            onPress={() => navigation.navigate('Patients')}
+            >
+            Patients
+            </Button>
+          </Block>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]} 
+            onPress={() => navigation.navigate('NewPatient')}
+            >
+            New Patient
+            </Button>
+          </Block>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]} 
+            
+            >
+            Criteria
+            </Button>
+          </Block>
+          
         </Block>
       </ScrollView>
     )
@@ -146,5 +120,21 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  shadow: {
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    shadowOpacity: 0.2,
+    elevation: 2,
+  },
+  button: {
+    marginBottom: theme.SIZES.BASE,
+    width: width - (theme.SIZES.BASE * 3),
+    color: theme.COLORS.BLACK
+  },
+  textStyle: {
+    fontSize: theme.SIZES.FONT,
+    color: theme.COLORS.BLACK,
   },
 });

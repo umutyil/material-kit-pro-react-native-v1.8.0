@@ -18,70 +18,37 @@ class PatientDetail extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-        <Text bold size={16} style={styles.title}>{patient.patientCode} - {patient.price} days in hospital</Text>
-          <TouchableWithoutFeedback
-            key={`getsmarthome-image-1`}
-            onPress={() => navigation.navigate('NewCalculation', { patient: patient })}>
-            <Block flex card shadow style={styles.category}>
+          <Text bold size={16} style={styles.title}>{patient.patientCode} - {patient.price} days in hospital</Text>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              onPress={() => navigation.navigate('NewCalculation', { patient: patient })}
+            >
+              New Calculation
+            </Button>
+          </Block>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              
+            >
+              Calculations Overview
+            </Button>
+          </Block>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              
+            >
+              Export
+            </Button>
+          </Block>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+   
+            >
+              Trends
+            </Button>
+          </Block>
 
-              <ImageBackground
-                source={{ uri: Images.Products['Accessories'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>New Calculation</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback
-            key={`getsmarthome-image-2`}
-            onPress={() => navigation.navigate('NewPatient')}>
-            <Block flex card shadow style={styles.category}>
-
-              <ImageBackground
-
-                source={{ uri: Images.Products['BMW'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Calculations Overview</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-            onPress={() => navigation.navigate('NewPatient')}>
-            <Block flex card shadow style={styles.category}>
-
-              <ImageBackground
-                source={{ uri: Images.Products['Watches'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Export</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback key={`getsmarthome-image-4`}
-            onPress={() => navigation.navigate('NewPatient')}>
-            <Block flex card shadow style={styles.category}>
-
-              <ImageBackground
-                source={{ uri: Images.Products['Mustang'] }}
-                style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-                imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-                <Block style={styles.categoryTitle}>
-                  <Text size={18} bold color={theme.COLORS.WHITE}>Trends</Text>
-                </Block>
-              </ImageBackground>
-
-            </Block>
-          </TouchableWithoutFeedback>
+          
         </Block>
       </ScrollView>
     )
@@ -162,5 +129,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  button: {
+    marginBottom: theme.SIZES.BASE,
+    width: width - (theme.SIZES.BASE * 3),
+    color: theme.COLORS.BLACK
+  },
+  textStyle: {
+    fontSize: theme.SIZES.FONT,
+    color: theme.COLORS.BLACK,
   },
 });

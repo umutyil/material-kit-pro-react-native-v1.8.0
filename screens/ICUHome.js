@@ -21,59 +21,40 @@ import { materialTheme, products, Images, tabs } from '../constants';
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-        <TouchableWithoutFeedback
-            key={`getsmarthome-image-2`}
-            onPress={() => navigation.navigate('NewCalculation', { patient: patient })}>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['BMW'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>New Patient</Text>
-              </Block>
-            </ImageBackground>
+        <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              onPress={() => navigation.navigate('NewCalculation', { patient: patient })}
+            >
+              New Patient
+            </Button>
           </Block>
-          </TouchableWithoutFeedback>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['Watches'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>Normal Values</Text>
-              </Block>
-            </ImageBackground>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              
+            >
+              Normal Values
+            </Button>
           </Block>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['Fragrance'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>Infusion Dose Calculator</Text>
-              </Block>
-            </ImageBackground>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              
+            >
+              Infusion Dose Calculator
+            </Button>
           </Block>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['Makeup'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>References</Text>
-              </Block>
-            </ImageBackground>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              
+            >
+              References
+            </Button>
           </Block>
-          <Block flex card shadow style={styles.category}>
-            <ImageBackground
-              source={{ uri: Images.Products['Mustang'] }}
-              style={[styles.imageBlock, { width: width - (theme.SIZES.BASE * 2), height: 252 }]}
-              imageStyle={{ width: width - (theme.SIZES.BASE * 2), height: 252 }}>
-              <Block style={styles.categoryTitle}>
-                <Text size={18} bold color={theme.COLORS.WHITE}>Units Convertor</Text>
-              </Block>
-            </ImageBackground>
+          <Block flex>
+            <Button shadowless color={materialTheme.COLORS.DEFAULT} textStyle={styles.textStyle} style={[styles.button, styles.shadow]}
+              
+            >
+              Units Convertor
+            </Button>
           </Block>
         </Block>
       </ScrollView>
@@ -152,5 +133,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  button: {
+    marginBottom: theme.SIZES.BASE,
+    width: width - (theme.SIZES.BASE * 3),
+    color: theme.COLORS.BLACK
+  },
+  textStyle: {
+    fontSize: theme.SIZES.FONT,
+    color: theme.COLORS.BLACK,
   },
 });
