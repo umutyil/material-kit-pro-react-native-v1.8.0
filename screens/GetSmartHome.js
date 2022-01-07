@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Dimensions, ScrollView, ImageBackground, TouchableWithoutFeedback, } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
 import { withNavigation } from '@react-navigation/compat';
+
 import { Icon, Product } from '../components';
 
 const { width } = Dimensions.get('screen');
@@ -51,7 +52,7 @@ class GetSmartHome extends React.Component {
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-            onPress={() => navigation.navigate('Patients')}>
+           >
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
