@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Dimensions, KeyboardAvoidingView, Alert, Platform } from 'react-native';
+import { StyleSheet, Dimensions, KeyboardAvoidingView, Alert, Platform, Image } from 'react-native';
 import { Block, Button, Input, Text, theme } from 'galio-framework';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from 'expo-linear-gradient';
 import { materialTheme } from '../constants/';
 import { HeaderHeight } from "../constants/utils";
+import DefaultImage from '../assets/images/logo.jpeg';
+const DEFAULT_IMAGE = Image.resolveAssetSource(DefaultImage).uri;
 
 const { width } = Dimensions.get('window');
 const login = async(username, password, navigation) => {
@@ -86,48 +88,13 @@ export default class SignIn extends React.Component {
           <KeyboardAvoidingView behavior="padding" enabled>
             <Block middle>
               <Block row center space="between" style={{ marginVertical: theme.SIZES.BASE * 1.875 }}>
-                {/* <Block flex middle right>
-                  <Button
-                    round
-                    onlyIcon
-                    iconSize={theme.SIZES.BASE * 1.625}
-                    icon="facebook"
-                    iconFamily="font-awesome"
-                    color={theme.COLORS.FACEBOOK}
-                    shadowless
-                    iconColor={theme.COLORS.WHITE}
-                    style={styles.social}
-                    onPress={() => Alert.alert('Not implemented')}
-                  />
-                </Block>
-                <Block flex middle center>
-                  <Button
-                    round
-                    onlyIcon
-                    iconSize={theme.SIZES.BASE * 1.625}
-                    icon="twitter"
-                    iconFamily="font-awesome"
-                    color={theme.COLORS.TWITTER}
-                    shadowless
-                    iconColor={theme.COLORS.WHITE}
-                    style={styles.social}
-                    onPress={() => Alert.alert('Not implemented')}
-                  />
-                </Block>
-                <Block flex middle left>
-                  <Button
-                    round
-                    onlyIcon
-                    iconSize={theme.SIZES.BASE * 1.625}
-                    icon="dribbble"
-                    iconFamily="font-awesome"
-                    color={theme.COLORS.DRIBBBLE}
-                    shadowless
-                    iconColor={theme.COLORS.WHITE}
-                    style={styles.social}
-                    onPress={() => Alert.alert('Not implemented')}
-                  />
-                </Block> */}
+              <Block flex center>
+          <Image
+            source={{ uri: DEFAULT_IMAGE }}
+            style={{ width: width - theme.SIZES.BASE * 4,
+              height: theme.SIZES.BASE * 3, zIndex: 1, top: 33 + theme.SIZES.BASE, }}
+          />
+        </Block>
               </Block>
             </Block>
             <Block middle style={{ paddingVertical: theme.SIZES.BASE * 2.625 }}>

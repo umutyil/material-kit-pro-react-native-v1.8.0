@@ -21,7 +21,7 @@ class CalculationResults extends React.Component {
           <Text bold size={16} style={styles.title}>{patient.title} - Assesment No: {patient.assesment} </Text>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-1`}
-            onPress={() => navigation.navigate('LeftVentricle', { patient: patient })}>
+            >
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -37,7 +37,7 @@ class CalculationResults extends React.Component {
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-2`}
-            onPress={() => navigation.navigate('RightVentricle', { patient: patient })}>
+            >
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -53,7 +53,7 @@ class CalculationResults extends React.Component {
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-3`}
-            onPress={() => navigation.navigate('Perfusion', { patient: patient })}>
+            >
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -68,7 +68,7 @@ class CalculationResults extends React.Component {
             </Block>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback key={`getsmarthome-image-4`}
-            onPress={() => navigation.navigate('Preload', { patient: patient })}>
+            >
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -84,7 +84,7 @@ class CalculationResults extends React.Component {
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-5`}
-            onPress={() => navigation.navigate('Afterload', { patient: patient })}>
+            >
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground
@@ -100,7 +100,7 @@ class CalculationResults extends React.Component {
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback
             key={`getsmarthome-image-6`}
-            onPress={() => navigation.navigate('Ventilation', { patient: patient })}>
+            >
             <Block flex card shadow style={styles.category}>
 
               <ImageBackground

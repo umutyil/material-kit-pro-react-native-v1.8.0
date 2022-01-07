@@ -2,6 +2,7 @@ import React from "react";
 import { Easing, Dimensions } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Icon, Header } from "../components/";
 import { Images, materialTheme } from "../constants/";
@@ -274,124 +275,227 @@ function WomanStack(props) {
         }}
       />
       <Stack.Screen
-        name="Deals"
-        component={DealsScreen}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header
-              back
-              tabs={tabs.deals}
-              title="Best Deals"
-              navigation={navigation}
-              scene={scene}
-            />
-          )
-        }}
-      />
-      <Stack.Screen
-        name="Categories"
-        component={CategoriesScreen}
+        name="NewCalculation"
+        component={NewCalculation}
         options={{
           header: ({ navigation, scene, route }) => (
             <Header
               back
-              tabs={tabs.categories}
-              tabIndex={tabs.categories[1].id}
-              title="Categories"
+              title="New Calculation"
               navigation={navigation}
               route={route}
               scene={scene}
             />
-          )
+          ),
+          //headerTransparent: true
         }}
       />
       <Stack.Screen
-        name="Category"
-        component={CategoryScreen}
+        name="BloodGasesVals"
+        component={BloodGasesVals}
         options={{
-          header: ({ navigation, scene }) => {
-            const { params } = scene.descriptor;
-            const title = (params && params.headerTitle) || "Category";
-            return (
-              <Header
-                back
-                title={title}
-                navigation={navigation}
-                scene={scene}
-              />
-            );
-          }
-        }}
-      />
-      <Stack.Screen
-        name="Product"
-        component={ProductScreen}
-        options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, scene, route }) => (
             <Header
               back
-              white
-              transparent
-              title=""
+              title="Blood Gases Values"
               navigation={navigation}
+              route={route}
               scene={scene}
             />
           ),
-          headerTransparent: true
+          //headerTransparent: true
         }}
       />
       <Stack.Screen
-        name="Gallery"
-        component={GalleryScreen}
+        name="CalculationResults"
+        component={CalculationResults}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, scene, route }) => (
             <Header
               back
-              white
-              transparent
-              title=""
+              title="Calculation Results"
               navigation={navigation}
+              route={route}
               scene={scene}
             />
           ),
-          headerTransparent: true
+          //headerTransparent: true
         }}
       />
       <Stack.Screen
-        name="Chat"
-        component={ChatScreen}
+        name="ClinicalScores"
+        component={ClinicalScores}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, scene, route }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Clinical Scores"
               navigation={navigation}
+              route={route}
               scene={scene}
             />
-          )
+          ),
+          //headerTransparent: true
         }}
       />
       <Stack.Screen
-        name="Cart"
-        component={CartScreen}
+        name="InfusionVals"
+        component={InfusionVals}
         options={{
-          header: ({ navigation, scene }) => (
+          header: ({ navigation, scene, route }) => (
             <Header
               back
-              title="Shopping Cart"
+              title="Infusion Values"
               navigation={navigation}
+              route={route}
               scene={scene}
             />
-          )
+          ),
+          //headerTransparent: true
         }}
       />
       <Stack.Screen
-        name="Search"
-        component={SearchScreen}
+        name="LabVals"
+        component={LabVals}
         options={{
-          header: ({ navigation, scene }) => (
-            <Header back title="Search" navigation={navigation} scene={scene} />
-          )
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Laboratory Values"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="MonitorVals"
+        component={MonitorVals}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Monitor Values"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="PepVals"
+        component={PepVals}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Physical Evaluation Values"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="TteVals"
+        component={TteVals}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Ultrasound Values"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="VentilatorVals"
+        component={VentilatorVals}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Ventilator Values"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="Sofa"
+        component={Sofa}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Sofa"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="Apacheii"
+        component={Apacheii}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Apacheii"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="Berlinards"
+        component={Berlinards}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Berlin ARDS"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="Murray"
+        component={Murray}
+        options={{
+          header: ({ navigation, scene, route }) => (
+            <Header
+              back
+              title="Murray Lung Injury Score"
+              navigation={navigation}
+              route={route}
+              scene={scene}
+            />
+          ),
+          //headerTransparent: true
         }}
       />
     </Stack.Navigator>
@@ -1175,11 +1279,12 @@ function SignUpStack(props) {
 }
 
 function AppStack(props) {
+  
   return (
     <Drawer.Navigator
       style={{ flex: 1 }}
       drawerContent={props => (
-        <CustomDrawerContent {...props} profile={profile} />
+        <CustomDrawerContent {...props}  />
       )}
       drawerStyle={{
         backgroundColor: "white",
@@ -1207,7 +1312,7 @@ function AppStack(props) {
       initialRouteName="Sign In"
     >
       <Drawer.Screen
-        name="Home"
+        name="Get Smart"
         component={HomeStack}
         options={{
           drawerIcon: ({ focused }) => (
@@ -1278,8 +1383,8 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Profile"
-        component={ProfileStack}
+        name="Components"
+        component={ComponentsStack}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
@@ -1306,21 +1411,7 @@ function AppStack(props) {
           )
         }}
       />
-      <Drawer.Screen
-        name="Components"
-        component={ComponentsStack}
-        options={{
-          drawerIcon: ({ focused }) => (
-            <Icon
-              size={16}
-              name="md-switch"
-              family="ionicon"
-              color={focused ? "white" : materialTheme.COLORS.MUTED}
-              style={{ marginRight: 2, marginLeft: 2 }}
-            />
-          )
-        }}
-      />
+      
 
     </Drawer.Navigator>
   );

@@ -1,25 +1,29 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView,ImageBackground, } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView,ImageBackground, TouchableWithoutFeedback, } from 'react-native';
 import { Button, Block, Text, Input, theme } from 'galio-framework';
-
+import { withNavigation } from '@react-navigation/compat';
 import { Icon, Product } from '../components';
 
 const { width } = Dimensions.get('screen');
 
 import { materialTheme, products, Images, tabs } from '../constants';
 
-export default class ICUHome extends React.Component {
+ class ICUHome extends React.Component {
 
 
 
 
   renderProducts = () => {
+    const { navigation } = this.props;
+    const patient = {"patientId":0,"patientCode":"","userId":3,"birthDate":"123","gender":"Male","height":123,"weight":123,"admissionDate":"tesd","inclusion":"test","exclusion":"test","comorbidities":"Coronary artery disease","reasonofocha":"Acute coronary syndrome","ttm":"Invasive TTM"};
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          
+        <TouchableWithoutFeedback
+            key={`getsmarthome-image-2`}
+            onPress={() => navigation.navigate('NewCalculation', { patient: patient })}>
           <Block flex card shadow style={styles.category}>
             <ImageBackground
               source={{ uri: Images.Products['BMW'] }}
@@ -30,6 +34,7 @@ export default class ICUHome extends React.Component {
               </Block>
             </ImageBackground>
           </Block>
+          </TouchableWithoutFeedback>
           <Block flex card shadow style={styles.category}>
             <ImageBackground
               source={{ uri: Images.Products['Watches'] }}
@@ -83,7 +88,7 @@ export default class ICUHome extends React.Component {
     );
   }
 }
-
+export default withNavigation(ICUHome);
 const styles = StyleSheet.create({
   home: {
     width: width,

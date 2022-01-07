@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   TouchableWithoutFeedback,
   ScrollView,
@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ListView
 } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Block, Text, theme } from "galio-framework";
 import { useSafeArea } from "react-native-safe-area-context";
 
@@ -16,13 +17,6 @@ import { Images, materialTheme } from "../constants/";
 
 const { width } = Dimensions.get("screen");
 
-const profile = {
-  avatar: Images.Profile,
-  name: "Premedix Tester",
-  type: "Critical care",
-  plan: "Dr.",
-  rating: 12
-};
 
 function CustomDrawerContent({
   drawerPosition,
@@ -32,13 +26,37 @@ function CustomDrawerContent({
   state,
   ...rest
 }) {
+  const [credentials, setCredentials] = useState({});
+  useEffect(() => {
+    async function getUserCredentials(){
+      try {
+        var ass = await AsyncStorage.getItem('session');
+        if (ass) {
+          setCredentials(JSON.parse(ass));
+          console.log(
+            'Credentials successfully loaded for menu ' + JSON.stringify(credentials)
+          );
+          
+        } else {
+          console.log('No credentials stored');
+        }
+      } catch (error) {
+        console.log("Keychain couldn't be accessed!", error);
+      }
+    };
+    if(!credentials.firstname){
+      getUserCredentials();
+    }
+    
+  });
+
   const insets = useSafeArea();
   const screens = [
-    "Home",
+    "Get Smart",
     "ICU Assistant",
-    "Settings",
-    "Components"
+    "Settings"
   ];
+
   return (
     <Block
       style={styles.container}
@@ -51,21 +69,21 @@ function CustomDrawerContent({
           <Block style={styles.profile}>
             {/* <Image source={{ uri: profile.avatar }} style={styles.avatar} /> */}
             <Text h5 color={"white"}>
-              {profile.name}
+              {credentials.firstname} {credentials.surname}
             </Text>
           </Block>
         </TouchableWithoutFeedback>
         <Block row>
           <Block middle style={styles.pro}>
             <Text size={16} color="white">
-              {profile.plan}
+              {credentials.suffix}
             </Text>
           </Block>
           <Text size={16} muted style={styles.seller}>
-            {profile.type}
+            {credentials.specilization}
           </Text>
           <Text size={16} color={materialTheme.COLORS.WARNING}>
-            {profile.rating}{" Years"}
+            {credentials.practiceYears}{" Years"}
 
           </Text>
         </Block>
